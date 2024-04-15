@@ -1,13 +1,12 @@
 {
   "name": "pagination-ts-js",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types.d.ts",
   "type": "module",
   "scripts": {
-    "build": "rollup -c --bundleConfigAsCjs ",
-    "publish": "npm run build && npm publish"
+    "build": "rollup -c --bundleConfigAsCjs "
   },
   "repository": {
     "type": "git",
