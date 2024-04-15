@@ -1,0 +1,40 @@
+{
+  "name": "pagination-ts-js",
+  "version": "1.0.1",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c --bundleConfigAsCjs ",
+    "publish": "npm run build && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imkamrul/pagination-ts-js.git"
+  },
+  "keywords": [
+    "React JS",
+    "Next JS",
+    "TypeScript"
+  ],
+  "author": "Kamrul Hasan",
+  "license": "ISC",
+  "description": "pagination-ts-js is a lightweight pagination component designed for React and Next.js, with TypeScript support. Easily integrate and customize pagination for efficient navigation of large datasets. No additional dependencies required. Simplify pagination in your applications with pagination-ts-js",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^18.2.78",
+    "react": "^18.2.0",
+    "rollup": "^4.14.2",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.5",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38"
+  }
+}
