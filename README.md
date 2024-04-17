@@ -46,9 +46,9 @@ const App = () => {
         totalPage={10}
         currentPage={currentPage}
         handlePageChange={setCurrentPage}
-        customStyle="hello"
+        customStyle=""
         buttonOptions={{
-          buttonStyle: "testing-btn",
+          buttonStyle: "",
           preButton: {
             btnText: "Pre", //default text is "Previous"
             icon: <SvgComponent />,
