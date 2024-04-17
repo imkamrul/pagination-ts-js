@@ -55,7 +55,7 @@ const App = () => {
             textHide: false, // true to hide text
           },
           nextButton: {
-            btnText: "Nex", //default text is "Next"
+            btnText: "Next", //default text is "Next"
             icon: "", //svg component
             textHide: false, // true to hide text
           },
