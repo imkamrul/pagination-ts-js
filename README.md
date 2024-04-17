@@ -51,12 +51,12 @@ const App = () => {
           buttonStyle: "",
           preButton: {
             btnText: "Pre", //default text is "Previous"
-            icon: <SvgComponent />,
+           icon: "", //svg component
             textHide: false, // true to hide text
           },
           nextButton: {
             btnText: "Nex", //default text is "Next"
-            icon: <SvgComponent />,
+            icon: "", //svg component
             textHide: false, // true to hide text
           },
         }}

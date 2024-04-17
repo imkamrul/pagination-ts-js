@@ -5,12 +5,12 @@ interface ButtonOptions {
   buttonStyle?: string;
   nextButton?: {
     btnText?: string;
-    icon?: JSX.Element;
+    icon?: JSX.Element | null | string;
     textHide?: boolean;
   };
   preButton: {
     btnText?: string;
-    icon?: JSX.Element;
+    icon?: JSX.Element | null | string;
     textHide?: boolean;
   };
 }
