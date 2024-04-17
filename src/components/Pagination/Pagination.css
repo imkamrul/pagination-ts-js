@@ -54,6 +54,9 @@
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
 }
 .pagination-next-pre-button.disabled {
   background: #e6e6e6aa;

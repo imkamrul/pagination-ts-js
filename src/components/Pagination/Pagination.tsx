@@ -1,17 +1,39 @@
+import React from "react";
 import "./Pagination.css";
-const Pagination = ({
-  handlePageChange,
-  currentPage,
-  totalPage,
-  customStyle,
-}: {
+
+interface ButtonOptions {
+  buttonStyle?: string;
+  nextButton?: {
+    btnText?: string;
+    icon?: JSX.Element;
+    textHide?: boolean;
+  };
+  preButton: {
+    btnText?: string;
+    icon?: JSX.Element;
+    textHide?: boolean;
+  };
+}
+interface PaginationProps {
   handlePageChange:
     | React.Dispatch<React.SetStateAction<number>>
     | ((page: number) => void);
   currentPage: number;
   totalPage: number;
   customStyle?: string;
+  buttonOptions?: ButtonOptions;
+}
+
+const Pagination: React.FC<PaginationProps> = ({
+  handlePageChange,
+  currentPage,
+  totalPage,
+  customStyle,
+  buttonOptions,
 }) => {
+  const preButton = buttonOptions?.preButton;
+  const nextButton = buttonOptions?.nextButton;
+
   const handlePagination = (current: number) => {
     if (current > totalPage || current < 1) {
       return;
@@ -36,7 +58,7 @@ const Pagination = ({
       <li
         onClick={() => handlePagination(index)}
         key={index}
-        className={`single-pagination-number ${
+        className={`single-pagination-number  ${
           currentPage === index ? " active" : ""
         }`}
       >
@@ -59,23 +81,42 @@ const Pagination = ({
   const nextPreButton = (btnText: string, handleClick: () => void) => {
     return (
       <button
-        className={`pagination-next-pre-button ${
-          (currentPage === 1 && btnText === "Previous") ||
-          (currentPage === totalPage && btnText === "Next")
+        className={`pagination-next-pre-button  ${
+          buttonOptions?.buttonStyle && buttonOptions?.buttonStyle
+        }   ${
+          (currentPage === 1 &&
+            (btnText === "Previous" || btnText === preButton?.btnText)) ||
+          (currentPage === totalPage &&
+            (btnText === "Next" || btnText === nextButton?.btnText))
             ? "disabled"
             : ""
         }`}
         onClick={() => handleClick()}
       >
-        {btnText}
+        {(btnText === "Previous" || btnText === preButton?.btnText) &&
+          preButton?.icon &&
+          preButton?.icon}
+        {(btnText === "Next" || btnText === nextButton?.btnText) &&
+          nextButton?.icon &&
+          nextButton?.icon}
+        {!preButton?.textHide &&
+          (btnText === "Previous" || btnText === preButton?.btnText) &&
+          btnText}
+        {!nextButton?.textHide &&
+          (btnText === "Next" || btnText === nextButton?.btnText) &&
+          btnText}
       </button>
     );
   };
   const nextPreButtonRender = () => {
     return (
       <>
-        {nextPreButton("Previous", () => handlePagination(currentPage - 1))}
-        {nextPreButton("Next", () => handlePagination(currentPage + 1))}
+        {nextPreButton(preButton?.btnText || "Previous", () =>
+          handlePagination(currentPage - 1)
+        )}
+        {nextPreButton(nextButton?.btnText || "Next", () =>
+          handlePagination(currentPage + 1)
+        )}
       </>
     );
   };
